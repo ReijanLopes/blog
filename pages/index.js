@@ -1,15 +1,14 @@
-import fs from "fs"
-import path from 'path'
-import matter from "gray-matter"
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
-import React from 'react'
-import Head from 'next/head'
-import Link from "next/link"
+import React from "react";
+import Head from "next/head";
+import Link from "next/link";
 
-import { Presentation } from "../component/presentation"
+import { Presentation } from "../component/presentation";
 
-export default function Home({posts}) {
-  console.log(posts)
+export default function Home({ posts }) {
   return (
     <div>
       <Head>
@@ -19,45 +18,58 @@ export default function Home({posts}) {
       </Head>
 
       <main>
-        {posts.map(({slug, frontmatter}, index) => (
-          <section key={index}>
-            <div>
-              <Link href={`/blog/${slug}`}><a>{frontmatter.title}</a></Link>
-              <div>{frontmatter.date}</div>
-            </div>
-            <div>{frontmatter.keyFilter}</div>
-            <div>{frontmatter.spoiler}</div>
-            
-          </section>
-        ))}
+        <section
+          className="container"
+          style={{ width: "90%", maxWidth: "1200px" }}
+        >
+          <Presentation />
+           
+          <ul style={{ width: "100%", marginBlock: "0px", paddingInlineStart: "0px"}}>
+            {posts.map(({ slug, frontmatter }, index) => (
+              <li style={{ width: "100%", listStyle: "none" }} key={index}>
+              < div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-end",
+                  width: "100%",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Link href={`/blog/${slug}`}>
+                  <a className="title">{frontmatter.title}</a>
+                </Link>
+              </div>
+              <div >{frontmatter.date} - {frontmatter.keyFilter}</div>
+              <div>{frontmatter.spoiler}</div>
+            </li>
+          ))}
+          </ul>
+        </section>
+        
       </main>
-      
     </div>
-  )
+  );
 }
 
-export async function getStaticProps(){
-  const files = fs.readdirSync(path.join('posts'))
+export async function getStaticProps() {
+  const files = fs.readdirSync(path.join("posts"));
 
-  const posts = files.map(fileName => {
-    const slug = fileName.replace('.md', '')
+  const posts = files.map((fileName) => {
+    const slug = fileName.replace(".md", "");
 
-    const markdownWithMeta = fs.readFileSync(
-      path.join('posts', fileName)
-    )
+    const markdownWithMeta = fs.readFileSync(path.join("posts", fileName));
 
-    const {data: frontmatter } = matter(markdownWithMeta)
+    const { data: frontmatter } = matter(markdownWithMeta);
 
-    return{
+    return {
       slug,
-      frontmatter
-    }
-  })
+      frontmatter,
+    };
+  });
 
-  return{
+  return {
     props: {
-      posts: posts 
-    }
-  }
-  
+      posts: posts,
+    },
+  };
 }
