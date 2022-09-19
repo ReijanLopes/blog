@@ -5,7 +5,17 @@ keyFilter: "Javascript"
 spoiler: "Muito usado na programação para trabalhar com banco de dados"
 ---
 
-O ato de **executar uma tarefa em "segundo plano"**, que por muitas vezes faz-se desnecessário o controle direto do programador do código. Usado para lidar com dados externos na **requisição para banco de dados, para ler arquivos de pastas alocadas no projeto usando fs**(File System do node.js). Para criar uma função assíncrona é muito simples, basta colocar "async" antes da função, às vezes sendo necessário o uso do "await", para fazer a função esperar e resolução da variável. Exemplos:
+O ato de **executar uma tarefa em "segundo plano"**, que por muitas vezes faz-se desnecessário o controle direto do programador do código. Usado para lidar com dados externos na **requisição para banco de dados, para ler arquivos de pastas alocadas no projeto usando fs**(File System do node.js). Para criar uma função assíncrona é muito simples, basta colocar "async" antes da função, às vezes sendo necessário o uso do "await", para fazer a função esperar a resolução da variável. Exemplos:
+
+```javascript
+async function getData() {
+  const res = await fetch("http://localhost:3000/app/data");
+  // esperar o valor retornar
+  const data = await res.json();
+  //esperarar a resposta ser tranformada para json()
+  return data;
+}
+```
 
 ## Promese
 

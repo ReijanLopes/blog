@@ -26,7 +26,7 @@ export default function Home({ posts }) {
            
           <ul style={{ width: "100%", marginBlock: "0px", paddingInlineStart: "0px"}}>
             {posts.map(({ slug, frontmatter }, index) => (
-              <li style={{ width: "100%", listStyle: "none" }} key={index}>
+              <li className="list" style={{ width: "100%", listStyle: "none",  margin: "0px 0px 20px 0px"}} key={index}>
               < div
                 style={{
                   display: "flex",
@@ -39,7 +39,7 @@ export default function Home({ posts }) {
                   <a className="title">{frontmatter.title}</a>
                 </Link>
               </div>
-              <div >{frontmatter.date} - {frontmatter.keyFilter}</div>
+              <div className="keyFilter">{frontmatter.date} - {frontmatter.keyFilter}</div>
               <div>{frontmatter.spoiler}</div>
             </li>
           ))}
