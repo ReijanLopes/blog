@@ -33,7 +33,7 @@ export default function PostPage({
         <main style={{ marginTop: 30 }}>
           <section>
             <div
-              style={{ width: "100%", maxWidth: "1000px", padding: "0px 10px" }}
+              style={{ width: "100%", maxWidth: "1000px" }}
               dangerouslySetInnerHTML={{ __html: marked.parse(content) }}
             ></div>
           </section>

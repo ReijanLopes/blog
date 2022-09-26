@@ -32,7 +32,9 @@ function App() {
 Depois de adicionar no seu código, podemos ver os fluxo de dados que estão acontecendo dentro do app, ajudando a reduzir o tempo de duração do app. Assim como o GraphQL, o React query apresentar conceitos básicos como.
 
 - Query(solicitacao de informacoes feitas ao banco de dados)
+
 - Mutações
+
 - Invalidação de querys
 
 ```javascript

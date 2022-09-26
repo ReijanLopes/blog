@@ -2,7 +2,7 @@
 title: "Como clonar um objeto"
 date: "05/09/2022"
 keyFilter: "Javascript"
-spoiler: "test"
+spoiler: "Algo comum no manusear de um objeto e a clonagem desse objeto, para alterar e interagir com esse objeto de maneira que se tenha um callback"
 ---
 
 Existem duas formas de clonar um objeto, o mais comum é o Shallow clone, mas uma muito uma boa forma de clonar o objeto localmente sem mudar o original e o Deep clone. Dependendo da sua ideia e foco final são maneiras incríveis de controlar o objeto
