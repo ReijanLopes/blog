@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 import Link from "next/link";
-import { Presentation } from "../../component/presentation";
+import { Presentation } from "../../component/Presentation";
 
 export default function PostPage({
   frontmatter: { title, date, keyFilter, spoiler },

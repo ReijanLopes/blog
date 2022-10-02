@@ -6,7 +6,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-import { Presentation } from "../component/presentation";
+import { Presentation } from "../component/Presentation";
 
 export default function Home({ posts }) {
   return (
@@ -23,29 +23,44 @@ export default function Home({ posts }) {
           style={{ width: "90%", maxWidth: "1200px" }}
         >
           <Presentation />
-           
-          <ul style={{ width: "100%", marginBlock: "0px", paddingInlineStart: "0px"}}>
+
+          <ul
+            style={{
+              width: "100%",
+              marginBlock: "0px",
+              paddingInlineStart: "0px",
+            }}
+          >
             {posts.map(({ slug, frontmatter }, index) => (
-              <li className="list" style={{ width: "100%", listStyle: "none",  margin: "0px 0px 20px 0px"}} key={index}>
-              < div
+              <li
+                className="list"
                 style={{
-                  display: "flex",
-                  alignItems: "flex-end",
                   width: "100%",
-                  justifyContent: "space-between",
+                  listStyle: "none",
+                  margin: "0px 0px 20px 0px",
                 }}
+                key={index}
               >
-                <Link href={`/blog/${slug}`}>
-                  <a className="title">{frontmatter.title}</a>
-                </Link>
-              </div>
-              <div className="keyFilter">{frontmatter.date} - {frontmatter.keyFilter}</div>
-              <div>{frontmatter.spoiler}</div>
-            </li>
-          ))}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-end",
+                    width: "100%",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Link href={`/blog/${slug}`}>
+                    <a className="title">{frontmatter.title}</a>
+                  </Link>
+                </div>
+                <div className="keyFilter">
+                  {frontmatter.date} - {frontmatter.keyFilter}
+                </div>
+                <div>{frontmatter.spoiler}</div>
+              </li>
+            ))}
           </ul>
         </section>
-        
       </main>
     </div>
   );
