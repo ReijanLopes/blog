@@ -12,22 +12,28 @@ Hoje eu aprendi sobre tipo constructor e o new Set, new Map e new URL foram os q
 new Set
 Sua manipulação é muito simples, pode simplesmente passar um array iterando ele na Set ou usando o método de adicionar dele, exemplo:
 
-const meuSet = new Set(...data) // Iterando o valor direto no Set
-const meuSet = new Set()
-meuSet.add(5)// Método para adicionar
-meuSet.add(...data)
+```javascript
+const meuSet = new Set(...data); // Iterando o valor direto no Set
+const meuSet = new Set();
+meuSet.add(5); // Método para adicionar
+meuSet.add(...data);
+```
 
 Mas ele tem uma característica muito especial, não permite que valores repetidos sejam passados a ele
 
-const data = [1,2,2,2,3,4,5,5,5]
-const meuSet = new Set(...data)// valor [1,2,3,4,5]
+```javascript
+const data = [1, 2, 2, 2, 3, 4, 5, 5, 5];
+const meuSet = new Set(...data); // valor [1,2,3,4,5]
+```
 
 new Map()
 O new Map tem as mesmas características do new Set mas ele tem a uma possibilidade de trabalhar com tagName || keyName(dependendo do nome que você use), por exemplo:
 
 Criando filtro por funcionários, mas eu tenho só uma lista das tarefas que ele fizeram:
 
+```javascript
 const dataTasks: {employeeName: string, typeTasks: string, dateBetween: {start: date, end: date}} = []
+
 
 const tasksSeparatedByEmployees = new Map()
 dataTasks.map((tasks) => {
@@ -51,16 +57,18 @@ console.log([...tasksSeparatedByEmployees.values()])
 console.log([...tasksSeparatedByEmployees.keys()])// ["Jose", "Reijan"]
 
 O index do Array.values e Array.keys() são correspondentes
+```
 
 new URL
 O new URL permite a pesquisa de cada rota e a pesquisa de cada um dos filtro passados
 
+```javascript
 http://localhost:3000/app?startDate=2022-07-01&endDate=2022-10-03
 const url = new URL(window.location.href)
 url.searchParams.get("startDate")// 2022-07-01
+```
 
 Mas essa parte e somente superficial por que o tipo constructor tem vários Métodos
-// TODO lista de Métodos
 
 Método:
 1- add() adiciona informações a o constructor
