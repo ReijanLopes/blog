@@ -9,6 +9,17 @@ const socialNetworks = [
   { name: "Twitter", href: "https://twitter.com/home" },
 ];
 
+const renderSocialNetworks = ({ name, href }, index) => (
+  <li
+    key={index}
+    style={{ listStyle: "none", width: "initial", marginLeft: "0px" }}
+  >
+    <Link target="_blank" href={href}>
+      <a style={{ fontSize: "14px", width: "30px" }}>{name}</a>
+    </Link>
+  </li>
+);
+
 export const Presentation = () => {
   return (
     <section
@@ -30,14 +41,8 @@ export const Presentation = () => {
           aprendizado sobre minha área de atuação. Rumo a se tornar um
           engenheiro de software.
         </div>
-        <ul style={{display: "flex", flexDirection: "row", gap: "10px"}} >
-          {socialNetworks.map(({ name, href }) => (
-            <li style={{listStyle: "none", width: "70px" ,marginLeft: "0px"}}>
-              <Link  target="_blank" href={href}>
-                <a style={{fontSize: "16px", width: "30px"}}>{name}</a>
-              </Link>
-            </li>
-          ))}
+        <ul style={{ display: "flex", flexDirection: "row", gap: "8px" }}>
+          {socialNetworks.map(renderSocialNetworks)}
         </ul>
       </div>
     </section>

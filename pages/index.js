@@ -7,6 +7,14 @@ import Head from "next/head";
 import Link from "next/link";
 
 import { Presentation } from "../component/Presentation";
+import { sortByDate } from "../utils/sortByDate";
+
+const FormateDate = (date) => {
+  const dateFormatted = new Date(date).toLocaleDateString("pt-BR", {
+    timeZone: "America/Sao_Paulo",
+  });
+  return dateFormatted;
+};
 
 export default function Home({ posts }) {
   return (
@@ -31,34 +39,37 @@ export default function Home({ posts }) {
               paddingInlineStart: "0px",
             }}
           >
-            {posts.map(({ slug, frontmatter }, index) => (
-              <li
-                className="list"
-                style={{
-                  width: "100%",
-                  listStyle: "none",
-                  margin: "0px 0px 20px 0px",
-                }}
-                key={index}
-              >
-                <div
+            {posts.map(({ slug, frontmatter }, index) => {
+              const date = new Date(frontmatter.date);
+              return (
+                <li
+                  className="list"
                   style={{
-                    display: "flex",
-                    alignItems: "flex-end",
                     width: "100%",
-                    justifyContent: "space-between",
+                    listStyle: "none",
+                    margin: "0px 0px 20px 0px",
                   }}
+                  key={index}
                 >
-                  <Link href={`/blog/${slug}`}>
-                    <a className="title">{frontmatter.title}</a>
-                  </Link>
-                </div>
-                <div className="keyFilter">
-                  {frontmatter.date} - {frontmatter.keyFilter}
-                </div>
-                <div>{frontmatter.spoiler}</div>
-              </li>
-            ))}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-end",
+                      width: "100%",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Link href={`/blog/${slug}`}>
+                      <a className="title">{frontmatter.title}</a>
+                    </Link>
+                  </div>
+                  <div className="keyFilter">
+                    {FormateDate(frontmatter.date)} - {frontmatter.keyFilter}
+                  </div>
+                  <div>{frontmatter.spoiler}</div>
+                </li>
+              );
+            })}
           </ul>
         </section>
       </main>
@@ -84,7 +95,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: posts,
+      posts: posts.sort(sortByDate),
     },
   };
 }

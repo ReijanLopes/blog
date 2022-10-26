@@ -73,6 +73,8 @@ pre {
   background-color: #1e1e1e;
   font-family: monospace;
   border-radius: 8px;
+  overflow-x: auto;
+  max-width: 95%;
 }
 
 code {

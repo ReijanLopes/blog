@@ -1,6 +1,6 @@
 ---
 title: "File System (fs)"
-date: "18/09/2022"
+date: "2022-09-19"
 keyFilter: "Node"
 spoiler: "Módulo do node.js que permite o trabalhar com arquivos"
 ---
