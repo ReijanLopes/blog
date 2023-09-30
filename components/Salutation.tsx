@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { useDebounce } from "@/utils/useDebounce";
-
 const Salutation = ({
   children,
   animation,
@@ -12,9 +10,14 @@ const Salutation = ({
   animation?: string;
 }) => {
   const [animate, setAnimation] = useState(false);
-  const handleAnimation = useDebounce(() => setAnimation(true), 200);
 
-  useEffect(() => handleAnimation());
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimation(true);
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
