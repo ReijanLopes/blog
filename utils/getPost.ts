@@ -21,18 +21,22 @@ export async function generatedPosts() {
       return await Promise.all(
         files.map(async (fileName) => {
           const file = fileName.replace(".md", "");
-          const markdownWithMeta = await fsPromises
-            .readFile(path.join("posts", folder, fileName), "utf-8")
-            .catch((e) => {
-              console.log("markdownWithMeta", e);
-            });
-
-          const { data: frontmatter } = matter(markdownWithMeta);
-
-          return {
-            file,
-            frontmatter,
-          };
+          try {
+            const markdownWithMeta = await fsPromises.readFile(
+              path.join("posts", folder, fileName),
+              "utf-8"
+            );
+            const { data: frontmatter } = matter(markdownWithMeta);
+            return {
+              file,
+              frontmatter: frontmatter as Frontmatter,
+            };
+          } catch (e) {
+            return {
+              file,
+              frontmatter: {} as Frontmatter,
+            };
+          }
         })
       );
     })
@@ -49,19 +53,27 @@ type ContentType = {
   content: string;
 };
 
-export const generateContent = async (id: string): Promise<ContentType> => {
+export const generateContent = async (
+  id: string
+): Promise<ContentType | undefined> => {
   const posts = await generatedPosts();
 
-  const post = posts.filter(({ file }) => {
+  const post = posts?.filter(({ file }) => {
     return file == id;
   });
 
   const folder = post?.[0]?.frontmatter?.folder;
   const nameFile = post?.[0]?.file;
 
-  const filePath = path.join("posts", folder, `${nameFile}.md`);
-  const files = readFileSync(filePath, "utf8");
-  const { data, content } = matter(files);
+  console.log(folder, nameFile);
 
-  return { data, content };
+  if (folder && nameFile) {
+    const filePath = path?.join("posts", folder, `${nameFile}.md`);
+    const files = readFileSync(filePath, "utf8");
+    const { data, content } = matter(files);
+
+    const frontmatter = data as Frontmatter;
+
+    return { data: frontmatter, content };
+  }
 };
