@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { marked } from "marked";
+import { redirect } from "next/navigation";
 
 import Menu from "@/components/Menu";
 import { generateContent } from "@/utils/getPost";
@@ -11,8 +12,13 @@ export default async function Post({
 }: {
   params: { id: string };
 }) {
-  const { content, data } = await generateContent(id);
-  const codeString = marked.parse(content);
+  const post = await generateContent(id);
+
+  if (!post?.content && !post?.data) {
+    redirect("/");
+  }
+
+  const codeString = marked.parse(post?.content);
 
   return (
     <section>
@@ -27,10 +33,10 @@ export default async function Post({
         </div>
         <div className="flex flex-col items-center sm:items-start">
           <h1 className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl md:text-3xl lg:text-5xl">
-            {data?.title}
+            {post?.data?.title}
           </h1>
-          <div className="font-semibold text-gray-600">{data?.date}</div>
-          <div className="text-gray-600">{data?.spoiler}</div>
+          <div className="font-semibold text-gray-600">{post?.data?.date}</div>
+          <div className="text-gray-600">{post?.data?.spoiler}</div>
         </div>
       </div>
       <div className="w-full flex justify-center">

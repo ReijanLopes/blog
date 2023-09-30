@@ -32,10 +32,11 @@ function FlashingText() {
     </>
   );
 }
+type KeyType = "frontend" | "backend";
 
 function TypingAnimation() {
   const [text, setText] = useState("");
-  const [key, setKey] = useState("frontend");
+  const [key, setKey] = useState<KeyType>("frontend");
   const [index, setIndex] = useState(0);
   const [activeAnimate, setActiveAnimate] = useState(false);
 
