@@ -6,7 +6,7 @@ import Menu from "@/components/Menu";
 
 import reijan from "@/assets/images/reijan.png";
 
-export const getData = async (id: string) => {
+const getData = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api`, {
     method: "POST",
     body: JSON.stringify({ id }),
