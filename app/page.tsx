@@ -29,7 +29,7 @@ const ListSocialMedia = ({ label, href }: socialMediaType) => {
 };
 
 const getPosts = async () => {
-  const res = await fetch("https://www.reijanlopes.com/api", {
+  const res = await fetch("/api", {
     next: { revalidate: 60 },
   });
   const posts = await res.json();

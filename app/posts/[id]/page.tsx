@@ -7,7 +7,7 @@ import Menu from "@/components/Menu";
 import reijan from "@/assets/images/reijan.png";
 
 const getData = async (id: string) => {
-  const res = await fetch(`https://www.reijanlopes.com/api`, {
+  const res = await fetch(`/api`, {
     method: "POST",
     body: JSON.stringify({ id }),
     next: { revalidate: 60 },
