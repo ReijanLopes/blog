@@ -6,7 +6,7 @@ import Menu from "@/components/Menu";
 
 import reijan from "@/assets/images/reijan.png";
 
-export const getContent = async (id: string) => {
+export const getData = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api`, {
     method: "POST",
     body: JSON.stringify({ id }),
@@ -22,7 +22,7 @@ export default async function Post({
 }: {
   params: { id: string };
 }) {
-  const post = await getContent(id);
+  const post = await getData(id);
 
   if (!post?.content && !post?.data) {
     redirect("/");
