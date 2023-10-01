@@ -3,16 +3,26 @@ import { marked } from "marked";
 import { redirect } from "next/navigation";
 
 import Menu from "@/components/Menu";
-import { generateContent } from "@/utils/getPost";
 
 import reijan from "@/assets/images/reijan.png";
+
+export const getContent = async (id: string) => {
+  const res = await fetch(`http://localhost:3000/api`, {
+    method: "POST",
+    body: JSON.stringify({ id }),
+    next: { revalidate: 60 },
+  });
+
+  const content = await res.json();
+  return content;
+};
 
 export default async function Post({
   params: { id },
 }: {
   params: { id: string };
 }) {
-  const post = await generateContent(id);
+  const post = await getContent(id);
 
   if (!post?.content && !post?.data) {
     redirect("/");
