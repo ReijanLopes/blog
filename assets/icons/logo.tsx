@@ -1,5 +1,3 @@
-import { archivo_black } from "@/app/fonts";
-
 export const LogoReijan = () => {
   return (
     <div className="flex gap-1">
