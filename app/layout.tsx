@@ -17,6 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <title>Reijan Lopes</title>
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );

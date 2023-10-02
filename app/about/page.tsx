@@ -59,7 +59,7 @@ export default function Blog() {
         animation="opacity-100 -translate-y-56"
       >
         <section className="relative flex justify-center">
-          <div className="absolute w-11/12 z-20 max-w-screen-xl  pb-14">
+          <div className="absolute w-11/12 z-20 max-w-screen-xl pb-40">
             <div className="mt-10 text-sm sm:text-base text-gray-600">
               Eu sou apaixonado por JavaScript em todas as suas formas. Minhas
               principais tecnologias incluem React, React Native, Relay, Expo,

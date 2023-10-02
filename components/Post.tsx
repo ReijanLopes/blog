@@ -20,9 +20,7 @@ function Post({ file, frontmatter }: PostType) {
   );
 }
 
-export default async function Posts() {
-  const posts = await generatedPosts();
-
+export default async function Posts({ posts }: { posts: PostType[] }) {
   return (
     <section className="w-full  mt-14 relative flex justify-center items-center pb-20">
       <ul className="grid justify-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 w-11/12 max-w-screen-xl list">
