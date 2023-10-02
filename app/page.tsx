@@ -37,7 +37,7 @@ const getPosts = async () => {
     const posts = await res.json();
     return posts;
   } catch (error) {
-    console.error(error?.message);
+    console.error(error);
     return [];
   }
 };

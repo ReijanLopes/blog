@@ -17,7 +17,7 @@ const getData = async (id: string) => {
     const content = await res.json();
     return content;
   } catch (error) {
-    console.error(error?.message);
+    console.error(error);
     return {};
   }
 };
