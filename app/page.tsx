@@ -3,6 +3,8 @@ import Image from "next/image";
 import Menu from "@/components/Menu";
 import Posts from "@/components/Post";
 
+import { generatedPosts } from "@/utils/getPost";
+
 import reijan from "@/assets/images/reijan.png";
 import Link from "next/link";
 
@@ -28,22 +30,8 @@ const ListSocialMedia = ({ label, href }: socialMediaType) => {
   );
 };
 
-const getPosts = async () => {
-  try {
-    const res = await fetch("https://www.reijanlopes.com/api", {
-      next: { revalidate: 60 },
-    });
-
-    const posts = await res.json();
-    return posts;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
-
 export default async function Home() {
-  const posts = await getPosts();
+  const posts = await generatedPosts();
   return (
     <main className="bg-white">
       <Menu />
