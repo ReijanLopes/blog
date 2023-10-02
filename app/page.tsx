@@ -28,7 +28,22 @@ const ListSocialMedia = ({ label, href }: socialMediaType) => {
   );
 };
 
-export default function Home() {
+const getPosts = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api", {
+      next: { revalidate: 60 },
+    });
+
+    const posts = await res.json();
+    return posts;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
+export default async function Home() {
+  const posts = await getPosts();
   return (
     <main className="bg-white">
       <Menu />
@@ -85,7 +100,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Posts />
+      <Posts posts={posts} />
     </main>
   );
 }
