@@ -30,7 +30,7 @@ const ListSocialMedia = ({ label, href }: socialMediaType) => {
 
 const getPosts = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api", {
+    const res = await fetch("https://www.reijanlopes.com/api", {
       next: { revalidate: 60 },
     });
 
