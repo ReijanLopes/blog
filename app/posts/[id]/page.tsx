@@ -7,9 +7,11 @@ import Menu from "@/components/Menu";
 
 import reijan from "@/assets/images/reijan.png";
 
+const url = process.env.URL || "https://www.reijanlopes.com";
+
 const getData = async (id: string) => {
   try {
-    const res = await fetch(`/api`, {
+    const res = await fetch(url + `/api`, {
       method: "POST",
       body: JSON.stringify({ id }),
       next: { revalidate: 60 },
