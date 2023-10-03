@@ -1,18 +1,15 @@
-import { marked } from "marked";
-import { redirect } from "next/navigation";
 import Image from "next/image";
 
-import { generateContent } from "@/utils/getPost";
 import reijan from "@/assets/images/reijan.png";
+import type { Frontmatter } from "@/type";
 
-export default async function Content({ id }: { id: string }) {
-  const content = await generateContent(id);
-
-  //   if (!content?.content && !content?.data) {
-  //     redirect("/");
-  //   }
-
-  const codeString = marked.parse(content?.content || " ");
+export default async function Content({
+  data,
+  codeString,
+}: {
+  codeString: string;
+  data: Frontmatter;
+}) {
   return (
     <>
       <div className="w-full px-4 pt-40 gap-8 flex flex-col sm:flex-row items-center justify-center lg:px-8">
@@ -25,12 +22,10 @@ export default async function Content({ id }: { id: string }) {
         </div>
         <div className="flex flex-col items-center sm:items-start">
           <h1 className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl md:text-3xl lg:text-5xl">
-            {content?.data?.title}
+            {data?.title}
           </h1>
-          <div className="font-semibold text-gray-600">
-            {content?.data?.date}
-          </div>
-          <div className="text-gray-600">{content?.data?.spoiler}</div>
+          <div className="font-semibold text-gray-600">{data?.date}</div>
+          <div className="text-gray-600">{data?.spoiler}</div>
         </div>
       </div>
       <div className="w-full flex justify-center">
