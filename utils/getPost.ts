@@ -64,6 +64,7 @@ export const generateContent = async (
 
   const folder = post?.[0]?.frontmatter?.folder;
   const nameFile = post?.[0]?.file;
+  console.log("nameFile", nameFile, folder);
 
   if (folder && nameFile) {
     const filePath = path?.join("posts", folder, `${nameFile}.md`);

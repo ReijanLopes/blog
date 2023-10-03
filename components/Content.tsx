@@ -8,11 +8,11 @@ import reijan from "@/assets/images/reijan.png";
 export default async function Content({ id }: { id: string }) {
   const content = await generateContent(id);
 
-  if (!content?.content && !content?.data) {
-    redirect("/");
-  }
+  //   if (!content?.content && !content?.data) {
+  //     redirect("/");
+  //   }
 
-  const codeString = marked.parse(content?.content);
+  const codeString = marked.parse(content?.content || " ");
   return (
     <>
       <div className="w-full px-4 pt-40 gap-8 flex flex-col sm:flex-row items-center justify-center lg:px-8">
