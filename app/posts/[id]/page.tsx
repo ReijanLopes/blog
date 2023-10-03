@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { marked } from "marked";
 import { redirect } from "next/navigation";
@@ -8,7 +9,7 @@ import reijan from "@/assets/images/reijan.png";
 
 const getData = async (id: string) => {
   try {
-    const res = await fetch(`http://localhost:3000/api`, {
+    const res = await fetch(`/api`, {
       method: "POST",
       body: JSON.stringify({ id }),
       next: { revalidate: 60 },
