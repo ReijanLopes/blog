@@ -21,11 +21,11 @@ export default async function Post({
 }) {
   const content = await generateContent(id);
 
-  if (!content?.content && !content?.data) {
-    redirect("/");
-  }
+  // if (!content?.content && !content?.data) {
+  //   redirect("/");
+  // }
 
-  const codeString = marked.parse(content?.content);
+  const codeString = marked.parse(content?.content || "");
 
   return (
     <section>

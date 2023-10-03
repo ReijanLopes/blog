@@ -8,7 +8,7 @@ export default async function Content({
   codeString,
 }: {
   codeString: string;
-  data: Frontmatter;
+  data?: Frontmatter;
 }) {
   return (
     <>
