@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "fs";
+import { readFileSync, readdirSync, promises } from "fs";
 import path from "path";
 import matter from "gray-matter";
 
@@ -10,19 +10,38 @@ export const sortByDate = (a: PostType, b: PostType) => {
     new Date(a.frontmatter.date).getTime()
   );
 };
-export async function generatePosts(): Promise<PostType[]> {
+
+export const getFilesName = async () => {
   const files = readdirSync(path.join("posts"));
 
-  const posts = await Promise.all(
+  const filesName = await Promise.all(
     files?.map(async (fileName) => {
-      const file = fileName.replace(".md", "");
+      return {
+        params: {
+          id: fileName.replace(".md", ""),
+        },
+      };
+    })
+  );
+
+  return {
+    paths: filesName,
+    fallback: false,
+  };
+};
+
+export async function generatePosts(): Promise<PostType[]> {
+  const files = await getFilesName();
+
+  const posts = await Promise.all(
+    files?.paths?.map(async (file) => {
       const markdownWithMeta = readFileSync(
-        path.join("posts", fileName),
+        path.join("posts", file?.params?.id + ".md"),
         "utf-8"
       );
       const { data } = matter(markdownWithMeta);
 
-      return { file, frontmatter: data as Frontmatter };
+      return { file: file?.params?.id, frontmatter: data as Frontmatter };
     })
   );
 

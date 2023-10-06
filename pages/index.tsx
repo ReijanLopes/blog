@@ -35,7 +35,7 @@ const ListSocialMedia = ({ label, href }: socialMediaType) => {
   );
 };
 
-export const getServerSideProps = (async () => {
+export const getStaticProps = (async () => {
   const posts = await generatePosts();
   return { props: { posts } };
 }) satisfies GetServerSideProps<{
@@ -44,7 +44,7 @@ export const getServerSideProps = (async () => {
 
 export default function Home({
   posts,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetServerSidePropsType<typeof getStaticProps>) {
   const renderListSocialMedia = useCallback(
     ({ href, label }: socialMediaType, idx: number) => (
       <ListSocialMedia href={href} label={label} key={idx} />
