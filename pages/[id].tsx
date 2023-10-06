@@ -3,14 +3,23 @@ import { marked } from "marked";
 
 import Menu from "@/components/Menu";
 
-import { generateContent } from "@/utils";
+import { generateContent, getFilesName } from "@/utils";
 
 import type { ContentType } from "@/types";
-import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+import type {
+  InferGetServerSidePropsType,
+  GetServerSideProps,
+  GetStaticPaths,
+} from "next";
 
 import reijan from "@/assets/images/reijan.png";
 
-export const getServerSideProps = (async (context) => {
+export const getStaticPaths = (async () => {
+  const path = await getFilesName();
+  return path;
+}) satisfies GetStaticPaths;
+
+export const getStaticProps = (async (context) => {
   const id = String(context?.params?.id);
   const content = await generateContent(id);
 
@@ -30,7 +39,7 @@ export const getServerSideProps = (async (context) => {
 
 export default function Post({
   content,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+}: InferGetServerSidePropsType<typeof getStaticProps>) {
   const codeString = marked.parse(content?.content);
 
   return (
