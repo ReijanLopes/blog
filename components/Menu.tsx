@@ -60,7 +60,7 @@ export default function Menu() {
   );
 
   return (
-    <section className="flex justify-between absolute w-screen px-12 pt-10 z-10">
+    <section className="flex flex-1 justify-between absolute w-full pt-10 z-10">
       <Link href="/">
         <LogoReijan />
       </Link>
