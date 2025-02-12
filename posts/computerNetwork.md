@@ -1,6 +1,6 @@
 ---
 title: "Redes de computadores"
-date: "2023-09-28"
+date: "28-09-2023"
 keyFilter: "Engenharia de software"
 spoiler: "A evolução das redes de computadores envolveu a criação dos protocolos, juntamente com protocolos de aplicação"
 ---

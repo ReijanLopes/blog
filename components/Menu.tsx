@@ -60,30 +60,32 @@ export default function Menu() {
   );
 
   return (
-    <section className="flex flex-1 justify-between absolute w-full pt-10 z-10">
-      <Link href="/">
-        <LogoReijan />
-      </Link>
+    <section className="absolute w-full pt-10 z-10 px-4 gap-8 lg:px-8 flex justify-center">
+      <div className="max-w-screen-xl flex flex-1 justify-between w-full">
+        <Link href="/">
+          <LogoReijan />
+        </Link>
 
-      <div className="flex items-center">
-        <div className="hidden md:flex gap-6">
-          <MenuList />
-        </div>
-        <div className="flex md:hidden">
-          <ul
-            onClick={() => {
-              setToggle(!toggle);
-            }}
-            className="flex flex-col gap-1.5 z-20"
-          >
-            {linesAnimation.map(renderLine)}
-          </ul>
-          <div
-            className={`flex flex-col shadow-lg p-3 py-28 pb-36 justify-between gap-8 fixed w-64 h-screen bg-white top-0 -right-[254px] rounded-s-2xl bg-gray-200 transition-all duration-300 transform ease-in-out ${
-              toggle && "-translate-x-full"
-            }`}
-          >
+        <div className="flex items-center">
+          <div className="hidden md:flex gap-6">
             <MenuList />
+          </div>
+          <div className="flex md:hidden">
+            <ul
+              onClick={() => {
+                setToggle(!toggle);
+              }}
+              className="flex flex-col gap-1.5 z-20"
+            >
+              {linesAnimation.map(renderLine)}
+            </ul>
+            <div
+              className={`flex flex-col shadow-lg p-3 py-28 pb-36 justify-between gap-8 fixed w-64 h-screen bg-white top-0 -right-[254px] rounded-s-2xl bg-gray-200 transition-all duration-300 transform ease-in-out ${
+                toggle && "-translate-x-full"
+              }`}
+            >
+              <MenuList />
+            </div>
           </div>
         </div>
       </div>

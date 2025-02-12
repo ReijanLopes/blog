@@ -5,9 +5,13 @@ import matter from "gray-matter";
 import type { PostType, Frontmatter, ContentType } from "@/types";
 
 export const sortByDate = (a: PostType, b: PostType) => {
+  const parseDate = (dateStr: string) => {
+    const [day, month, year] = dateStr.split("-"); // Divide "12-09-2022" em ["12", "09", "2022"]
+    return new Date(`${year}-${month}-${day}`); // Retorna "2022-09-12"
+  };
   return (
-    new Date(b.frontmatter.date).getTime() -
-    new Date(a.frontmatter.date).getTime()
+    parseDate(b.frontmatter.date).getTime() -
+    parseDate(a.frontmatter.date).getTime()
   );
 };
 

@@ -1,6 +1,6 @@
 ---
 title: "Funções assincronas"
-date: "2022-09-12"
+date: "12-09-2022"
 keyFilter: ["Javascript"]
 spoiler: "Muito usado na programação para trabalhar com banco de dados"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Sistemas embarcados"
-date: "2023-09-29"
+date: "29-09-2023"
 keyFilter: "Engenharia de software"
 spoiler: "4 atividades universais para identificar a criação de um software."
 ---
