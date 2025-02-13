@@ -1,6 +1,6 @@
 ---
 title: "JavaScript e ECMAScript"
-date: "11-02-2025"
+date: "12-02-2025"
 keyFilter: ["JavaScript", "ECMAScript", "Variáveis"]
 spoiler: "Entenda como let e const mudaram o escopo no JavaScript"
 ---
