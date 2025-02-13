@@ -1,7 +1,7 @@
 export type Frontmatter = {
   title: string;
   date: string;
-  keyFilter: string;
+  keyFilter: string | string[];
   spoiler: string;
 };
 
