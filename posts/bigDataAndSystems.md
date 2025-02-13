@@ -1,6 +1,6 @@
 ---
 title: "Big data e sistemas"
-date: "2023-09-27"
+date: "27-09-2023"
 keyFilter: "Engenharia de software"
 spoiler: "Gestão de big data e sistemas como ERP, SCM, CRM e SGC visam melhorar processos e relacionamentos com clientes."
 ---

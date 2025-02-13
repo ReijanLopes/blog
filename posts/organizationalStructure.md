@@ -1,6 +1,6 @@
 ---
 title: "Estrutura Organizacional"
-date: "2023-09-29"
+date: "29-09-2023"
 keyFilter: "Engenharia de software"
 spoiler: "A estrutura organizacional engloba grupos empresariais, adaptando-se às leis, cultura e sistemas de informação."
 ---

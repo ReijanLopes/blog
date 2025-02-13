@@ -1,6 +1,6 @@
 ---
 title: "Funções Principais do Computador"
-date: "2023-09-29"
+date: "29-09-2023"
 keyFilter: "Engenharia de software"
 spoiler: "As principais funções do computador são quatro."
 ---

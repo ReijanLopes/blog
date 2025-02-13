@@ -1,6 +1,6 @@
 ---
 title: "O que é React query"
-date: "2022-09-12"
+date: "12-09-2022"
 keyFilter: ["React"]
 spoiler: "Uma ferramenta que está facilitando o trabalho do frontend, focada em lidar com as informações do dataBase"
 ---

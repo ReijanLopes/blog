@@ -1,6 +1,6 @@
 ---
 title: "Construtors"
-date: "2022-10-26"
+date: "26-10-2022"
 keyFilter: ["Javascript"]
 spoiler: "Hoje eu aprendi sobre tipo constructor e o new Set, new Map e new URL foram os que mais me chamaram a atenção"
 ---

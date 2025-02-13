@@ -1,6 +1,6 @@
 ---
 title: "Como clonar um objeto"
-date: "2023-09-30"
+date: "30-09-2023"
 keyFilter: ["Javascript"]
 spoiler: "Algo comum no manusear de um objeto e a clonagem desse objeto, para alterar e interagir com esse objeto de maneira que se tenha um callback"
 ---
