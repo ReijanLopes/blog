@@ -13,17 +13,14 @@ export default function PostItems({ file, frontmatter }: PostType) {
       <div className="flex my-2">
         <div className="font-semibold text-xs flex gap-1">
           {Array.isArray(frontmatter.keyFilter) ? (
-            frontmatter.keyFilter.map((text, idx) => 
-              <div className="flex">
-                <div key={idx}>{text}</div>
-                {idx !== (frontmatter.keyFilter.length - 1) && <div>,</div> }
+            frontmatter.keyFilter.map((text, idx) => (
+              <div key={idx} className="flex">
+                <div>{text}</div>
+                {idx !== frontmatter.keyFilter.length - 1 && <div>,</div>}
               </div>
-            )
+            ))
           ) : (
-            
-              <div>{frontmatter.keyFilter}</div>
-            
-            
+            <div>{frontmatter.keyFilter}</div>
           )}
         </div>
         <div className="ml-2 mr-2 text-xs">|</div>
