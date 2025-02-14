@@ -13,7 +13,7 @@ JavaScript é uma linguagem de programação amplamente utilizada como fullstack
 
 Uma das versões mais importantes para o JavaScript foi o ECMAScript de 2015, que trouxe melhorias significativas, como um controle mais eficiente do escopo das variáveis ao introduzir let e const.
 
-Antes dessa atualização, o JavaScript utilizava apenas var para declarar variáveis, o que poderia gerar problemas de escopo. Uma variável declarada com var tem escopo de função ou global, independentemente de onde for definida, tornando-se acessível em todo o código. Isso dificultava a organização e o controle sobre onde uma variável poderia ser acessada ou modificada.
+Antes dessa atualização, o JavaScript utilizava apenas var para declarar variáveis, o que poderia gerar problemas de escopo. Uma variável declarada como var tem um escopo global, independentemente de onde for definida, tornando-se acessível em todo o código. Isso dificultava a organização e o controle sobre onde uma variável poderia ser acessada ou modificada.
 
 ### Exemplo com var:
 
