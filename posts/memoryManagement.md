@@ -1,3 +1,10 @@
+---
+title: "Gerenciamento de Memória e Coleta de Lixo em JavaScript"
+date: "24-02-2025"
+keyFilter: ["JavaScript", "Gerenciamento de Memória", "Coleta de Lixo"]
+spoiler: "Entenda como funciona a coleta de lixo e como otimizar o uso de memória no JavaScript."
+---
+
 # Gerenciamento de Memória e Coleta de Lixo em JavaScript
 
 O gerenciamento de memória em JavaScript é realizado automaticamente pelo mecanismo da linguagem, garantindo que a memória usada por variáveis, objetos e funções seja liberada quando não for mais necessária. Isso acontece graças ao processo de coleta de lixo, que limpa objetos inacessíveis da memória para evitar vazamentos e otimizar o desempenho.
