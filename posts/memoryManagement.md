@@ -1,7 +1,7 @@
 ---
 title: "Gerenciamento de Memória e Coleta de Lixo em JavaScript"
 date: "24-02-2025"
-keyFilter: ["JavaScript", "Gerenciamento de Memória", "Coleta de Lixo"]
+keyFilter: ["JavaScript", "Gerenciamento de Memória"]
 spoiler: "Entenda como funciona a coleta de lixo e como otimizar o uso de memória no JavaScript."
 ---
 
