@@ -6,8 +6,6 @@ spoiler: "Exploração do funcionamento da internet, protocolos, pacotes e segur
 ---
 
 
-# Create a Markdown file with the provided content
-
 # Como Funciona a Internet?
 
 A internet é uma rede global de computadores interconectados que permite a troca de informações entre dispositivos em qualquer lugar do mundo. Essa comunicação ocorre por meio de um conjunto de regras e protocolos que garantem a transmissão de dados de forma rápida e eficiente.
