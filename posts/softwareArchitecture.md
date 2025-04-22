@@ -2,7 +2,7 @@
 title: "Fundamentos da Arquitetura de Software"
 date: "14-04-2025"
 keyFilter:
-  ["Arquitetura de Software", "Arquiteto de Software", "Níveis de Arquitetura"]
+  ["Arquitetura de Software"]
 spoiler: "Entenda os conceitos essenciais para quem deseja atuar como arquiteto de software"
 ---
 
