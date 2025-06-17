@@ -1,7 +1,7 @@
 ---
 title: "Padrões de Design e Princípios de Engenharia de Software"
 date: "09-06-2025"
-keyFilter: ["Engenharia de Software", "Boas Práticas", "Design Patterns"]
+keyFilter: ["Engenharia de Software", "Design Patterns"]
 spoiler: "Conheça os fundamentos essenciais que todo desenvolvedor profissional deve dominar para escrever códigos mais escaláveis, limpos e robustos."
 ---
 
