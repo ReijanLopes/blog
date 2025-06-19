@@ -7,7 +7,7 @@ export default function PostItems({ file, frontmatter }: PostType) {
   return (
     <Link
       href={href}
-      className="listItem bg-white rounded-md p-4 hover:scale-100 border hover:border-2 divide-slate-200 hover:border-blue-600  w-full min-[370px]:h-52 md:h-48"
+      className="listItem bg-white rounded-md p-4 hover:scale-100 border hover:border-2 divide-slate-200 hover:border-blue-600  w-full min-[370px]:min-h-52 md:min-h-48"
     >
       <div className="font-semibold text-lg">{frontmatter?.title}</div>
       <div className="flex my-2">
