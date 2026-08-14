@@ -6,7 +6,7 @@ import Posts from "@/components/Posts";
 
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 
-import { generatePosts } from "@/utils";
+import { generatePosts, paginate } from "@/utils";
 
 import reijan from "@/assets/images/reijan.png";
 import homeNuna from "@/assets/images/Home venda.png";
@@ -122,7 +122,8 @@ const ListSocialMedia = ({ label, href }: socialMediaType) => {
 
 export const getStaticProps = (async () => {
   const posts = await generatePosts();
-  return { props: { posts } };
+  const postsHome = paginate(posts, 1, 6).items;
+  return { props: { posts: postsHome } };
 }) satisfies GetServerSideProps<{
   posts: PostType[];
 }>;
@@ -145,7 +146,7 @@ export default function Home({
   );
 
   return (
-    <main className="bg-white flex justify-center">
+    <main className="bg-black flex justify-center">
       <section className="w-full flex flex-col relative px-4 lg:px-8 max-w-screen-xl">
         <div className="relative h-[80vh] isolate">
           <Menu />
@@ -207,7 +208,11 @@ export default function Home({
           </section>
         </section>
 
-        <Posts posts={posts} />
+        <section className="w-full mt-14 flex flex-col justify-center items-center pb-20">
+          <h2 className="text-lg font-bold w-full tracking-tight text-gray-900 sm:text-xl md:text-2xl lg:text-3xl mb-5">Posts</h2>
+          <Posts posts={posts} />
+        </section>
+
       </section>
     </main>
   );

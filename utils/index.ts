@@ -34,6 +34,9 @@ export const getFilesName = async () => {
   };
 };
 
+export { paginate } from "./paginate";
+export type { PaginatedResult } from "./paginate";
+
 export async function generatePosts(): Promise<PostType[]> {
   const files = await getFilesName();
 
